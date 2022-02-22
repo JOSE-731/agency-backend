@@ -9,5 +9,6 @@ class Portafolio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'imagen', 'categoria'];
+    protected $table = "portafolios";
+    public $timestamps = false;
 }

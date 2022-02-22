@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre', 'imagen', 'profesion_perfil', 'facebook', 'twitter', 'linkedin'];
+
+    protected $table = "teams";
+    public $timestamps = false;
 
 }
