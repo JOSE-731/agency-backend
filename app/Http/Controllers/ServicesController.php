@@ -13,4 +13,11 @@ class ServicesController extends Controller
 
         return $services;
     }
+
+    public function indexv2(){
+
+        $data = Services::paginate(10);
+        return view('Services.index', compact('data'));
+    }
+
 }

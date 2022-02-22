@@ -15,4 +15,10 @@ class AboutController extends Controller
         return $about;
     }
 
+    public function indexv2(){
+
+        $data = About::paginate(10);
+        return view('About.index', compact('data'));
+    }
+
 }

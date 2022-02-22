@@ -15,4 +15,11 @@ class PortafolioController extends Controller
         return $portafolio;
     }
 
+    public function indexv2(){
+
+        $data = Portafolio::paginate(10);
+        return view('Portafolio.index', compact('data'));
+    }
+
+
 }

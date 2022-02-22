@@ -15,6 +15,13 @@ class ContactController extends Controller
         return $contact;
     }
 
+    public function indexv2(){
+
+        $data = Contact::paginate(10);
+        return view('Contact.index', compact('data'));
+    }
+
+
     public function store(){
         
     }
