@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Rutas About
+Route::post('/about', [AboutController::class,'store']);
+Route::put('/about/{id}', [AboutController::class,'update']);
+Route::delete('/about/{id}', [AboutController::class,'destroy']);

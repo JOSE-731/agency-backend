@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PortafolioController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TeamController;
+use App\Models\Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +20,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Rutas de about
+//Rutas de About
 Route::get('/about', [AboutController::class,'index']);
-Route::post('/about', [AboutController::class,'store']);
-Route::put('/about/{id}', [AboutController::class,'update']);
-Route::delete('/about/{id}', [AboutController::class,'destroy']);
+
+//Rutas de Contact
+Route::get('/contact', [ContactController::class,'index']);
+Route::post('/contact', [ContactController::class,'store']);
+
+//Rutas de Portafolio
+Route::get('/portafolio', [PortafolioController::class,'index']);
+
+//Rutas de Services
+Route::get('/services', [ServicesController::class,'index']);
+
+//Rutas de Team
+Route::get('/teams', [TeamController::class,'index']);
