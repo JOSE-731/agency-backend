@@ -22,7 +22,20 @@ use App\Http\Controllers\Index;
 //Index
 Route::get('/index', [Index::class, 'index']);
 
-//Rutas About
-Route::post('/about', [AboutController::class,'store']);
+//Rutas about
+Route::get('/about', [AboutController::class,'indexv2'])->name('about');
 Route::put('/about/{id}', [AboutController::class,'update']);
 Route::delete('/about/{id}', [AboutController::class,'destroy']);
+
+
+//Rutas contact
+Route::get('/contact', [ContactController::class,'indexv2'])->name('contact');
+
+//Rutas portafolio
+Route::get('/portafolio', [PortafolioController::class,'indexv2'])->name('portafolio');
+
+//Rutas services
+Route::get('/services', [ServicesController::class,'indexv2'])->name('services');
+
+//Rutas team
+Route::get('/team', [TeamController::class,'indexv2'])->name('team');
