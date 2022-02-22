@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PortafolioController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\Index;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Index
+Route::get('/index', [Index::class, 'index']);
 
 //Rutas About
 Route::post('/about', [AboutController::class,'store']);
