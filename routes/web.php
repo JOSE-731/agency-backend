@@ -20,7 +20,7 @@ use App\Http\Controllers\Index;
 */
 
 //Index
-Route::get('/index', [Index::class, 'index']);
+Route::get('/index', [Index::class, 'index'])->name('index');
 
 //Rutas about
 Route::get('/about', [AboutController::class,'indexv2'])->name('about');
