@@ -25,7 +25,7 @@
                      <h5 class="card-title">About</h5>
                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                          content.</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     <a href={{ route('about') }} class="btn btn-primary">Go somewhere</a>
                  </div>
              </div>
             </div>
@@ -37,7 +37,7 @@
                     <h5 class="card-title">Contact</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                         content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href={{ route('contact') }} class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                     <h5 class="card-title">Portafolio</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                         content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href={{ route('portafolio') }} class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                   <h5 class="card-title">Services</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                       content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href={{ route('services') }} class="btn btn-primary">Go somewhere</a>
               </div>
           </div>
          </div>
@@ -78,7 +78,7 @@
                  <h5 class="card-title">Team</h5>
                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                      content.</p>
-                 <a href="about" class="btn btn-primary">Go somewhere</a>
+                 <a href={{ route('team') }} class="btn btn-primary">Go somewhere</a>
              </div>
          </div>
      </div>
