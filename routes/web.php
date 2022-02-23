@@ -24,8 +24,10 @@ Route::get('/index', [Index::class, 'index']);
 
 //Rutas about
 Route::get('/about', [AboutController::class,'indexv2'])->name('about');
-Route::put('/about/{id}', [AboutController::class,'update']);
-Route::delete('/about/{id}', [AboutController::class,'destroy']);
+Route::get('about/create', [AboutController::class,'create'])->name('create.about');
+//Route::post('create/store/categorias', 'CategoriaController@store')->name('categoria')->
+//Route::put('/about/{id}', [AboutController::class,'update']);
+//Route::delete('/about/{id}', [AboutController::class,'destroy']);
 
 
 //Rutas contact
@@ -33,9 +35,12 @@ Route::get('/contact', [ContactController::class,'indexv2'])->name('contact');
 
 //Rutas portafolio
 Route::get('/portafolio', [PortafolioController::class,'indexv2'])->name('portafolio');
+Route::get('portafolio/create', [PortafolioController::class,'create'])->name('create.portafolio');
 
 //Rutas services
 Route::get('/services', [ServicesController::class,'indexv2'])->name('services');
+Route::get('services/create', [ServicesController::class,'create'])->name('create.services');
 
 //Rutas team
 Route::get('/team', [TeamController::class,'indexv2'])->name('team');
+Route::get('team/create', [TeamController::class,'create'])->name('create.team');

@@ -20,4 +20,9 @@ class ServicesController extends Controller
         return view('Services.index', compact('data'));
     }
 
+    public function create(){
+
+        return view('Services.create');
+    }
+
 }

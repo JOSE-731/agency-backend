@@ -21,5 +21,10 @@ class TeamController extends Controller
         return view('Team.index', compact('data'));
     }
 
+    public function create(){
+
+        return view('Team.create');
+    }
+
 
 }

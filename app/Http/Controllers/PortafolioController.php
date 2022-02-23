@@ -21,5 +21,9 @@ class PortafolioController extends Controller
         return view('Portafolio.index', compact('data'));
     }
 
+    public function create(){
+
+        return view('Portafolio.create');
+    }
 
 }

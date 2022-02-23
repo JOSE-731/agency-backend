@@ -21,4 +21,9 @@ class AboutController extends Controller
         return view('About.index', compact('data'));
     }
 
+    public function create(){
+
+        return view('About.create');
+    }
+
 }
