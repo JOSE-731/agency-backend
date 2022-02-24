@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="navbar-brand" href={{ route('create.about') }}>AGREGAR<span class="sr-only">(current)</span></a>
+                    <a class="navbar-brand" href={{ route('create.portafolio') }}>AGREGAR<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -32,13 +32,14 @@
             <div class="col-sm-8 mx-auto mt-2">
                 <div class="card border-0 shadow">
                     <div class="card-body">
-                        <form action="" method="POST" class="row g-3 needs-validation" enctype="multipart/form-data">
+                        <form action={{ route('store.portafolio') }} method="POST" class="row g-3 needs-validation" enctype="multipart/form-data">
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="titulo" placeholder="TITULO" autocomplete="off" required>
                             </div>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="categoria" placeholder="CATEGORIA" autocomplete="off" required>
                             </div>
+                            <br /><br />
                             <div class="col-sm-6">
                                 <input type="file" class="form-control" name="imagen" placeholder="seleccione una imagen" autocomplete="off">
                             </div>

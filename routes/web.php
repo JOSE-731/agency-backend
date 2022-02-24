@@ -37,6 +37,10 @@ Route::get('/contact', [ContactController::class,'indexv2'])->name('contact');
 //Rutas portafolio
 Route::get('/portafolio', [PortafolioController::class,'indexv2'])->name('portafolio');
 Route::get('portafolio/create', [PortafolioController::class,'create'])->name('create.portafolio');
+Route::post('portafolio/registro', [PortafolioController::class,'store'])->name('store.portafolio');
+Route::get('portafolio/{id}', [PortafolioController::class,'edit'])->name('edit.portafolio');
+Route::put('portafolio/{id}', [PortafolioController::class,'update'])->name('update.portafolio');
+Route::delete('portafolio/{id}', [PortafolioController::class,'destroy'])->name('delete.portafolio');
 
 //Rutas services
 Route::get('/services', [ServicesController::class,'indexv2'])->name('services');

@@ -50,7 +50,12 @@
                             <td>{{$iteracion->imagen}}</td>
                             <td>{{$iteracion->categoria}}</td>
                             <td>
-
+                                <a href="{{route('edit.portafolio',$iteracion->id)}}" type="button" class="btn btn-warning btn-sm">EDITAR</a>
+                                <form action="{{route('delete.portafolio',$iteracion->id)}}" class="d-inline" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm" type="submit">ELIMINAR</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
