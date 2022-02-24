@@ -32,16 +32,16 @@
             <div class="col-sm-8 mx-auto mt-2">
                 <div class="card border-0 shadow">
                     <div class="card-body">
-                        <form action={{ route('update.about', $edit->id ) }} method="POST" class="row g-3 needs-validation" enctype="multipart/form-data">
+                        <form action={{ route('update.about', $edit->id ) }} method="POST" class="row g-3 needs-validation">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="titulo" placeholder="TITULO" autocomplete="off" value={{ $edit->titulo }} required>
+                                <input type="text" class="form-control" name="titulo" placeholder="TITULO" autocomplete="off" value="{{ $edit->titulo }}" required>
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="descripcion" placeholder="DESCRIPCION" autocomplete="off" value={{ $edit->descripcion }} required>
+                                <input type="text" class="form-control" name="descripcion" placeholder="DESCRIPCION" autocomplete="off" value="{{ $edit->descripcion }}" required>
                             </div>
                             <br /><br />
                             <div class="col-sm-6">
-                                <input type="date" class="form-control" name="fecha" placeholder="FECHA" autocomplete="off" value={{ $edit->fecha }}  required>
+                                <input type="date" class="form-control" name="fecha" placeholder="FECHA" autocomplete="off" value="{{ $edit->fecha }}"  required>
                             </div>
                             <div class="col-sm-6">
                                 <div class="col-auto">
