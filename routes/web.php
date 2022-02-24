@@ -25,9 +25,10 @@ Route::get('/index', [Index::class, 'index'])->name('index');
 //Rutas about
 Route::get('/about', [AboutController::class,'indexv2'])->name('about');
 Route::get('about/create', [AboutController::class,'create'])->name('create.about');
-//Route::post('create/store/categorias', 'CategoriaController@store')->name('categoria')->
-//Route::put('/about/{id}', [AboutController::class,'update']);
-//Route::delete('/about/{id}', [AboutController::class,'destroy']);
+Route::post('about/registro', [AboutController::class,'store'])->name('store.about');
+Route::get('about/{id}', [AboutController::class,'edit'])->name('edit.about');
+Route::put('about/{id}', [AboutController::class,'update'])->name('update.about');
+Route::delete('about/{id}', [AboutController::class,'destroy'])->name('delete.about');
 
 
 //Rutas contact

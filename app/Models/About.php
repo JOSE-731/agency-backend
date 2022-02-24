@@ -10,5 +10,6 @@ class About extends Model
     use HasFactory;
     
     protected $table = "abouts";
+    protected $fillable = ['titulo', 'descripcion', 'fecha'];
     public $timestamps = false;
 }

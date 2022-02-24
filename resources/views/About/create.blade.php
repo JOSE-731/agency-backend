@@ -32,12 +32,12 @@
             <div class="col-sm-8 mx-auto mt-2">
                 <div class="card border-0 shadow">
                     <div class="card-body">
-                        <form action="" method="POST" class="row g-3 needs-validation" enctype="multipart/form-data">
+                        <form action={{ route('store.about') }} method="POST" class="row g-3 needs-validation" enctype="multipart/form-data">
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="titulo" placeholder="TITULO" autocomplete="off" required>
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="descripcion" placeholder="descripcion" autocomplete="off" required>
+                                <input type="text" class="form-control" name="descripcion" placeholder="DESCRIPCION" autocomplete="off" required>
                             </div>
                             <br /><br />
                             <div class="col-sm-6">

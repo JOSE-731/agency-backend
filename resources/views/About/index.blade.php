@@ -49,7 +49,12 @@
                             <td>{{$iteracion->titulo}}</td>
                             <td>{{$iteracion->fecha}}</td>
                             <td>
-
+                                <a href="{{route('edit.about',$iteracion->id)}}" type="button" class="btn btn-warning btn-sm">EDITAR</a>
+                                <form action="{{route('delete.about',$iteracion->id)}}" class="d-inline" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm" type="submit">ELIMINAR</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
