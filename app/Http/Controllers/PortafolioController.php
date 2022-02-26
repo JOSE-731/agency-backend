@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Portafolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\File;
 
 class PortafolioController extends Controller
 {
@@ -30,6 +31,7 @@ class PortafolioController extends Controller
     public function store(Request $request)
     {
         
+        $portafolio = new Portafolio();
       /*$portafolio = Portafolio::create([
             'titulo' => $request->titulo,
             'categoria' => $request->categoria
@@ -46,12 +48,24 @@ class PortafolioController extends Controller
         //Guardar la imagen
 
         if($request->hasFile('imagen')){
-            $datosEmpleados['imagen']=$request->file('imagen')->store('uploads','public');
+            //Obtenemos la imagen
+            $imagenName=$request->file('imagen');
+
+            //Especificamos la tuta donde queremos que se almacene la imagen
+            $destination = 'imagen/featured/';
+            //Guardamos la imagen con su nombre original
+            $filename = $imagenName->getClientOriginalName();
+            $upload = $request->file('imagen')->move($destination, $filename);
+
+            $portafolio->imagen = $destination . $filename;
         }
 
+        $portafolio->titulo = $request->titulo;
+        $portafolio->categoria = $request->categoria;
+
+        $portafolio->save();
      
         //Guardamos en la bd los valores que treamoes por request
-        Portafolio::insert($datosPortafolio);
      
 
         return back();
@@ -65,33 +79,23 @@ class PortafolioController extends Controller
 
     public function update(Request $request, $id)
     {
-       
-        //$edit->titulo = $request->titulo;
-        //$edit->categoria = $request->categoria;
+       $updateData = Portafolio::find($id);
+       $updateData->titulo = $request->titulo;
+       $updateData->categoria = $request->categoria;
       
+       if($request->hasFile('imagen')){
+        $imagenName=$request->file('imagen');
 
-        if($request->hasFile('imagen')){
-            $edit = Portafolio::find($id);
-            //Eliminar la imagen
-            Storage::delete('public/'.$edit->imagen);
-           // Storage::disk('public')->delete($edit->imagen);
-            $dataUpdate['imagen']=$request->file('imagen')->store('uploads','public');
-            
-        }
-        Portafolio::where('id', '=', $id)->update($dataUpdate);
-        $edit= Portafolio::find($id);
+        //especificamos la tuta donde queremos que se almacene la imagen
+        $destination = 'imagen/featured/';
+        $filename = $imagenName->getClientOriginalName();
+        $upload = $request->file('imagen')->move($destination, $filename);
+        $updateData->imagen = $destination . $filename;
+    }
 
-        
-      /*  if($request->hasFile('foto')){
-            $empleado = Empleados::find($id);
-            Storage::delete('public/'.$empleado->foto);
-            $datosEmpleados['foto']=$request->file('foto')->store('uploads', 'public');
-        }
-        Empleados::where('id', '=', $id)->update($datosEmpleados);
-        $empleado= Empleados::find($id);
-        return view('empleados.edit', compact('empleado'));*/
+        $updateData->save();
    
-       return view('index', compact('edit'));
+       return view('index');
     }
 
 
@@ -99,10 +103,10 @@ class PortafolioController extends Controller
 
         //Eliminamos todo el registro
         $data = Portafolio::find($id);
-        dd( $data->imagen);
+        $data->delete();
        
 
-        return;
+        return back();
     }
 
 }
