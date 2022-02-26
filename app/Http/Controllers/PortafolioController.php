@@ -30,7 +30,7 @@ class PortafolioController extends Controller
     public function store(Request $request)
     {
         
-      $portafolio = Portafolio::create([
+      /*$portafolio = Portafolio::create([
             'titulo' => $request->titulo,
             'categoria' => $request->categoria
         ] + $request->all());
@@ -38,7 +38,21 @@ class PortafolioController extends Controller
         if($request->hasFile('imagen')){
             $datosCursos['imagen']=$request->file('imagen')->store('uploads','public');
             $portafolio->save();
+        }*/
+
+       // $datosPortafolio=request()->all();
+        $datosPortafolio=request()->except('_token');
+
+        //Guardar la imagen
+
+        if($request->hasFile('imagen')){
+            $datosEmpleados['imagen']=$request->file('imagen')->store('uploads','public');
         }
+
+     
+        //Guardamos en la bd los valores que treamoes por request
+        Portafolio::insert($datosPortafolio);
+     
 
         return back();
     }
@@ -51,27 +65,44 @@ class PortafolioController extends Controller
 
     public function update(Request $request, $id)
     {
-        $edit = Portafolio::find($id);
-        $edit->titulo = $request->titulo;
-        $edit->categoria = $request->categoria;
+       
+        //$edit->titulo = $request->titulo;
+        //$edit->categoria = $request->categoria;
       
 
         if($request->hasFile('imagen')){
+            $edit = Portafolio::find($id);
             //Eliminar la imagen
-            Storage::disk('public')->delete($edit->imagen);
-            $edit['imagen']=$request->file('imagen')->store('uploads','public');
-            $edit->save();
+            Storage::delete('public/'.$edit->imagen);
+           // Storage::disk('public')->delete($edit->imagen);
+            $dataUpdate['imagen']=$request->file('imagen')->store('uploads','public');
+            
         }
+        Portafolio::where('id', '=', $id)->update($dataUpdate);
+        $edit= Portafolio::find($id);
+
+        
+      /*  if($request->hasFile('foto')){
+            $empleado = Empleados::find($id);
+            Storage::delete('public/'.$empleado->foto);
+            $datosEmpleados['foto']=$request->file('foto')->store('uploads', 'public');
+        }
+        Empleados::where('id', '=', $id)->update($datosEmpleados);
+        $empleado= Empleados::find($id);
+        return view('empleados.edit', compact('empleado'));*/
    
-       return view('index');
+       return view('index', compact('edit'));
     }
 
 
-    public function destroy(Request $request){
+    public function destroy($id){
 
-        $articulo = Portafolio::destroy($request->id);
+        //Eliminamos todo el registro
+        $data = Portafolio::find($id);
+        dd( $data->imagen);
+       
 
-        return back();
+        return;
     }
 
 }
